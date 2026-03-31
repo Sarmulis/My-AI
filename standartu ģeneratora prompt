@@ -1,0 +1,19 @@
+Sapratu! Kontakttīklu būvniecībā un uzturēšanā galvenie standarti parasti balstās uz Eiropas (EN) normatīviem, kas Latvijā ir adaptēti kā LVS (Latvijas Valsts standarti).
+Tā kā šie ir maksas dokumenti ar autortiesībām, es nevaru tieši "ielādēt" pilnus PDF failus savā atmiņā tavā vietā, taču es varu palīdzēt izveidot asistentu, kurš zina, ko meklēt, un es varu apkopot publiski pieejamo informāciju.
+Šeit ir plāns, kā mēs varam sākt "Tehnisko standartu detektīva" izveidi jau tagad:
+1. Galvenie standarti, kas tev jāzina
+Tavam asistentam pamatā būtu šādi dokumenti (tos vari mēģināt iegūt no sava departamenta arhīva vai "Rīgas satiksmes" iekšējā tīkla):
+ * LVS EN 50119: Dzelzceļa lietojumi. Stabilas iekārtas. Elektriskā vilce. Gaisa kontakttīkli. (Šis ir "Bībele" kontakttīklu speciālistiem).
+ * LVS EN 50122: Drošība, iezemēšana un aizsardzība pret elektrošoku.
+ * MK noteikumi Nr. 72: Noteikumi par dzelzceļa tehnisko ekspluatāciju (attiecas arī uz tramvaju/trolejbusu infrastruktūru).
+2. Ko es varu darīt tūlīt (bez PDF)
+Es varu darboties kā tavs "Zināšanu bāzes prototips". Tu vari man jautāt par vispārpieņemtiem tehniskiem parametriem. Piemēram:
+> "Kāds ir standarta kontakttīkla vada augstums virs sliežu galvas līmeņa pilsētas apstākļos?" vai "Kāda ir pieļaujamā zigzaga novirze?"
+> 
+3. Kā mēs to tehniski realizēsim?
+Kad tu dabūsi PDF failus (pat ja tās ir darba instrukcijas vai iekšējie standarti):
+ * Izmanto "Custom GPT" vai "Gemini Gems": Tu varēsi augšupielādēt šos failus kā "Knowledge" (zināšanas).
+ * Konfidencialitāte: Ja tie ir iekšējie dokumenti, izmanto asistentu tikai tehnisko datu meklēšanai, nevis slepenas biznesa informācijas glabāšanai.
+Sākam testu!
+Pamēģini man uzdot vienu konkrētu jautājumu par kādu tehnisko normu vai parametru, ko tu šodien pārbaudīji jaunajā objektā (piemēram, par balsta enkurojumu vai vada augstumu). Es mēģināšu atrast atbildi savā datu bāzē.
+Kāds ir pirmais tehniskais jautājums, ko mēs "iemācīsim" tavam asistentam?
