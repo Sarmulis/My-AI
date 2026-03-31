@@ -1,0 +1,102 @@
+Šis ir pilnveidots, universāls Python skripts. Tas izmanto "viedo segmentāciju", lai atpazītu jebkuras krāsas zīmējumu uz gaiša fona un automātiski nošķirtu lielāko objektu (virsbūvi) no mazākiem (riteņiem), balstoties uz to novietojumu.
+Fināla Python skripts: "The Universal Scribble Mover"
+import cv2
+import numpy as np
+from skimage import measure
+
+def process_and_animate(image_path, output_path='berna_auto.mp4'):
+    # 1. Ielādējam attēlu
+    img = cv2.imread(image_path)
+    if img is None:
+        print("Attēls nav atrasts!")
+        return
+
+    # 2. Universāla krāsu atpazīšana (jebkura krāsa uz gaiša fona)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    # Izmantojam adaptīvo slieksni, lai noķertu pat gaišus zīmuļus
+    binary = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
+                                   cv2.THRESH_BINARY_INV, 21, 10)
+    
+    # Notīrām sīkus "putekļus" (trokšņus)
+    kernel = np.ones((3,3), np.uint8)
+    binary = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)
+
+    # 3. Segmentācija - atrodam visus uzzīmētos objektus
+    labels = measure.label(binary)
+    regions = measure.regionprops(labels)
+    
+    if not regions:
+        print("Zīmējumā nekas netika atrasts!")
+        return
+
+    # Sakārtojam reģionus pēc laukuma (lielākais pirmais)
+    regions.sort(key=lambda x: x.area, reverse=True)
+    
+    body_region = regions[0] # Lielākais pleķis ir auto korpuss
+    # Riteņi ir tie, kas atrodas zemāk par korpusa augšējo daļu
+    potential_wheels = [r for r in regions[1:] if r.area > body_region.area * 0.05]
+    wheels = [r for r in potential_wheels if r.centroid[0] > body_region.bbox[0]]
+
+    # 4. Animācijas iestatījumi
+    height, width = img.shape[:2]
+    fps = 30
+    duration = 6 # sekundes
+    total_frames = fps * duration
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
+
+    print(f"Atrasts korpuss un {len(wheels)} riteņi. Sākam animēt...")
+
+    for frame_idx in range(total_frames):
+        # Aprēķinām kustību
+        progress = frame_idx / total_frames
+        x_offset = int(progress * width * 1.2) - (width // 4)
+        
+        # Riteņu rotācija (leņķis)
+        angle = progress * 360 * 4 # 4 pilni apgriezieni
+        
+        # "Lēkāšanas" efekts (bumpy ride), jo riteņi nav apaļi
+        jitter = int(np.sin(np.radians(angle * 2)) * 8)
+        
+        # Izveidojam tukšu kadru ar oriģinālo papīra krāsu
+        frame = np.full((height, width, 3), (250, 250, 245), dtype=np.uint8)
+
+        # Funkcija, lai pārvietotu un rotētu pikseļus
+        def draw_part(region, rotation=0, is_wheel=False):
+            mask = (labels == region.label).astype(np.uint8) * 255
+            cy, cx = region.centroid
+            
+            # Rotācijas matrica ap objekta centru
+            M_rot = cv2.getRotationMatrix2D((cx, cy), rotation, 1.0)
+            # Translācijas (kustības) matrica
+            M_trans = np.float32([[1, 0, x_offset], [0, 1, jitter if is_wheel or True else 0]])
+            
+            # Apvienojam transformācijas
+            rotated_mask = cv2.warpAffine(mask, M_rot, (width, height), flags=cv2.INTER_NEAREST)
+            final_mask = cv2.warpAffine(rotated_mask, M_trans, (width, height), flags=cv2.INTER_NEAREST)
+            
+            # Pārnesam krāsas no oriģinālā zīmējuma uz jauno kadru
+            indices = np.where(final_mask > 0)
+            frame[indices] = img[np.where(mask > 0)][:len(indices[0])] # Vienkāršota krāsu pārnese
+
+        # Zīmējam korpusu
+        draw_part(body_region)
+        
+        # Zīmējam riteņus ar rotāciju
+        for wheel in wheels:
+            draw_part(wheel, rotation=-angle, is_wheel=True)
+
+        out.write(frame)
+
+    out.release()
+    print(f"Gatavs! Video saglabāts kā {output_path}")
+
+# Lietošana:
+# process_and_animate('mana_berna_zimejums.jpg')
+
+Kāpēc šis risinājums ir labāks:
+ * Adaptīvā segmentācija: Tā analizē attēlu pa blokiem, tāpēc pat ja bilde ir nofotografēta ar ēnu vienā stūrī, tā joprojām atpazīs līnijas.
+ * Pikseļu pārnese: Programma nevis vienkārši nokrāso objektu sarkanu, bet "izgriež" oriģinālos krītiņa pikseļus un pārvieto tos. Ja bērns ir izmantojis vairākas krāsas, tās visas saglabāsies.
+ * Viedā hierarhija: Pat ja zīmējumā ir nejauši punktiņi, tie netiks uzskatīti par riteņiem, jo mēs pārbaudām to laukumu attiecībā pret mašīnas izmēru.
+ * Rigid Body rotācija: Riteņi griežas ap savu masas centru. Ja ritenis ir "kantains", tas griezīsies tieši tāpat kā smieklīga, nepareiza forma dabā.
+Padoms: Lai rezultāts būtu vislabākais, lūdz bērnam zīmēt uz tīras, baltas lapas un nofotografē zīmējumu pēc iespējas tieši no augšas (bez lielām leņķa deformācijām).
