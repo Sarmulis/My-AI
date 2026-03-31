@@ -1,0 +1,39 @@
+Šis ir lielisks un tehniski izaicinošs projekts! Lai šādu programmu izveidotu, nepietiek tikai ar vienu "uzdevumu" (prompt). Tev būs nepieciešama vesela sistēma, kas apvieno dažādas datorredzes (computer vision) un animācijas tehnoloģijas.
+Pats labākais piemērs tam, ko Tu apraksti, ir Meta (Facebook) projekts "Animated Drawings". Viņi ir atvēruši šīs tehnoloģijas kodu, ko Tu vari izmantot par pamatu.
+Šeit būs detalizēts ceļvedis (tehniskais prompts/specifikācija), kā uzbūvēt šādu programmu.
+Projekta nosaukums: "Atdzīvinātais Zīmējums"
+Mērķis
+Izveidot datorprogrammu, kas parastu, bērna zīmētu attēlu (neatkarīgi no krāsām, anatomijas vai kvalitātes) pārveido par 2D animāciju, pilnībā saglabājot oriģinālā zīmējuma faktūru un izskatu, to neuzlabojot un nepārzīmējot.
+Sistēmas Arhitektūra (4 galvenie soļi)
+Lai to panāktu, Tev būs nepieciešams izveidot "cauruļvadu" (pipeline), kurā attēls iet cauri šādiem posmiem:
+1. Solis: Zīmējuma detektēšana un Segmentācija (Cropping & Binarization)
+Uzdevums: Programmai ir jāatrod lapā galvenais tēls un jānošķir tas no fona.
+ * Problēma: Bērni bieži zīmē uz rūtiņu papīra, ar ēnu fotogrāfijā, vai ar citām detaļām fonā.
+ * Risinājums (Prompt datoram): "Izmantojot Instance Segmentation modeli (piemēram, Mask R-CNN), atrodi un izgriez centrālo tēlu no attēla. Ignorē fonu, papīra tekstūru vai ēnas. Izveido masku, kur tēls ir balts, bet fons – melns. Saglabā oriģinālo krāsu tēlu ar caurspīdīgu fonu (Alpha channel)."
+2. Solis: "Skeleta" noteikšana (Pose Estimation)
+Uzdevums: Šis ir vissvarīgākais un grūtākais posms. Programmai ir "jāsaprot", kur tēlam ir locītavas, pat ja tam ir 5 kājas vai nav galvas.
+ * Problēma: Tradicionālie modeļi meklē cilvēka anatomiju (2 rokas, 2 kājas). Šeit tas nederēs.
+ * Risinājums (Prompt datoram): "Analizē segmentēto tēlu. Nosaki tēla galvenos 'atslēgas punktus' (joints/landmarks) un savieno tos skeletā.
+   * Sāc ar tēla centru (torso).
+   * No centra atrodi galējos punktus (rokas, kājas, galva, aste).
+   * Pievieno locītavas viduspunktos.
+   * Noteikums: Nebloķē procesu, ja trūkst kāda cilvēka daļa (piemēram, nav galvas). Adaptējies un izveido skeletu tikai no esošajām daļām (piemēram, centrālais punkts + 4 'ekstremitāšu' punkti, neatkarīgi no tā, kas tie ir)."
+ * Piezīme: Šeit var būt nepieciešams lietotāja interfeiss, kurā bērns vai vecāks var pielabot punktus, ja dators ir kļūdījies (piemēram, nezinot, kur ir roka, kur koks zīmējumā).
+3. Solis: "Skeleta" sasaiste ar zīmējumu (Rigging & Skinning)
+Uzdevums: Piestiprināt zīmējuma pikseļus pie izveidotā skeleta, lai, kustinot skeletu, kustētos zīmējums.
+ * Risinājums (Prompt datoram): "Deformē 2D tēlu (mesh deformation) atbilstoši skeleta punktu izvietojumam. Pārliecinies, ka krāsas un līnijas paliek oriģinālas, tikai 'izstiepjas' vai 'saliecas' locītavu vietās. Izmanto algoritmus kā As-Rigid-As-Possible deformāciju."
+4. Solis: Animēšana (Animation)
+Uzdevums: Pielietot gatavu kustību paraugu (motion file) izveidotajam skeletam.
+ * Risinājums (Prompt datoram): "Paņem skeletu ar piesaistīto zīmējumu. Pielieto tam iepriekš sagatavotu animācijas failu (piemēram, 'staigāšana', 'lēkāšana', 'māšana'). Pārvieto skeleta punktus laikā un renderē rezultātu kā video failu (MP4) vai GIF. Fons paliek balts vai caurspīdīgs."
+Kā Tu vari sākt to būvēt jau šodien?
+Visvienkāršākais veids ir nevis sākt no nulles, bet izmantot atvērtā koda resursus.
+Tev būs nepieciešamas programmēšanas zināšanas (Python) un sekojošas bibliotēkas:
+ * OpenCV / Pillow: Attēlu apstrādei.
+ * PyTorch / TensorFlow: Mākslīgā intelekta modeļiem.
+ * Meta Research "Animated Drawings" kods: Tas ir pieejams GitHub un dara precīzi to, ko Tev vajag.
+Konkrēts plāns Tev:
+ * Lejupielādē kodu no: https://github.com/facebookresearch/animated-drawings
+ * Sekojot viņu pamācībai, instalē nepieciešamās Python bibliotēkas.
+ * Tev būs nepieciešamas divas galvenās lietas: bērna zīmējuma attēls un konfigurācijas fails (YAML), kurā definēts, kur ir locītavas.
+ * Viņu kodā ir iekļauti rīki, kas mēģina automātiski noteikt locītavas, bet vislabākais rezultāts būs, ja Tu izveidosi nelielu lietotāja saskarni (web vai desktop aplikāciju), kur bērns var pats atzīmēt "Šeit man ir celis, šeit ir elkonis".
+Šis ir aizraujošs projekts, kas noteikti iepriecinās bērnus! Veiksmi darbā!
