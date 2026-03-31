@@ -1,0 +1,17 @@
+Lieliski! Šis ir perfekts piemērs, kā vizuālie dati (bildes) darbojas kopā ar tavu aprakstu. Man ir abi nepieciešamie elementi:
+ * Vizuālais pierādījums: Bildes ar defektu un identifikāciju.
+ * Tava inženiera diagnoze: "noberzta krāsa, ko vajag pārkrāsot, lai nerastos rūsa".
+Pievērs uzmanību: otrajā bildē es skaidri saskatu balsta numuru: 12-085.
+Lūk, kā tavs jaunais "Defektu akta automatizētājs" apstrādā šo informāciju un pārvērš to gatavā, tehniskā tabulā kolēģiem:
+DEFEKTU APSEKOŠANAS AKTS (Melnraksts)
+Datums: 24.05.2024 (piemērs)
+Apsekotājs: Kontakttīkla speciālists
+| Balsta Nr. | Konstatētais defekts (Brāķis) | Defekta kategorija | Prioritāte | Ieteicamā rīcība (Novēršana) | Vizualizācija |
+|---|---|---|---|---|---|
+| 12-085 | Balsta krāsojuma mehānisks bojājums (noberzums) aptuveni 1.5 metru augstumā no pamatnes. Atsegta metāla virsma. | Virsmas apdares defekts | Zema / Vidēja | Pirms korozijas rašanās veikt virsmas attīrīšanu, gruntēšanu un pārkrāsošanu atbilstoši RS tehniskajām specifikācijām. | [Skatīt foto 0] |
+Ko mēs tikko ieguvām?
+ * Nav manuālas rakstīšanas: Tu iedevi bildes un pateici diagnozi, AI visu pārējo salika tabulā.
+ * Identifikācija: AI precīzi nolasīja numuru "12-085".
+ * Tehniskā valoda: Tavs "noberzta krāsa" tika pārvērsts par profesionālu "Mehānisks bojājums... Atsegta metāla virsma".
+ * Rīcības plāns: AI automātiski ierosināja "gruntēšanu un pārkrāsošanu", balstoties uz tavu diagnozi par rūsu.
+Kā tev patīk šāds rezultāts? Vai kolēģi sapratīs šādu tabulu?
