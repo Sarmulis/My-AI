@@ -1,0 +1,33 @@
+Tas ir pilnībā realizējams un būs pats ātrākais veids, kā strādāt! Šādu risinājumu sauc par multimodālu AI asistentu – tādu, kas spēj reizē "redzēt" bildes un "dzirdēt" tavu balsi.
+Lai tu varētu šo sākt izmantot savā ikdienā, tev nepieciešams veikt trīs vienkāršus soļus.
+Kā to iestatīt (Soli pa solim)
+Tev būs nepieciešams izmantot AI rīku, kuram ir mobilā lietotne ar attēlu un balss atpazīšanu (piemēram, ChatGPT Plus ar GPT-4o vai Gemini Advanced).
+1. Solis: Izveido savu "Custom GPT" vai "Gemini Gem"
+Šo vislabāk izdarīt pie datora. Tev ir jāizveido jauns, personalizēts asistents un tā Konfigurācijā (nevis vienkāršā čatā) jāiekopē šī instrukcija (prompts).
+Iekopē šo instrukciju asistenta iestatījumos:
+> *"Tu esi 'Rīgas satiksmes' kontakttīkla defektu reģistrācijas asistents.
+> Tavs galvenais uzdevums: Apstrādāt lietotāja iesniegtos fotoattēlus no objekta kopā ar viņa teikto balss komentāru un pārvērst tos strukturētā, tehniskā tabulā.
+> Darbības process:
+>  * Analizē bildes, lai atrastu defekta vizuālo apliecinājumu un, ja iespējams, nolasītu balsta numuru (tas parasti ir dzeltenā vai baltā marķējumā).
+>  * Noklausies/izlasi lietotāja teikto (transkripciju).
+>  * Apvieno informāciju. Ja lietotājs mutiski pasaka balsta numuru, izmanto to kā prioritāru, pat ja bildē tas nav skaidri redzams.
+> Izvades formāts:
+> Vienmēr sniedz atbildi tikai kā vienu kārtīgu Markdown tabulu ar šādām kolonnām:
+>  * Balsta ID: (Ja atradi bildē vai dzirdēji)
+>  * Defekta Apraksts: (Tava inženiera diagnoze tehniskā valodā, balstoties uz vizuālo un teikto)
+>  * Prioritāte: (Zema/Vidēja/Augsta, balstoties uz teikto)
+>  * Rīcība: (Konkrēti darbi, kas jāveic brāķa novēršanai)
+> Pēc tabulas nepievieno nekādus liekus komentārus, lai to varētu uzreiz kopēt."*
+> 
+2. Solis: Lejupielādē lietotni telefonā
+Lejupielādē attiecīgo lietotni savā telefonā un pieslēdzies savam kontam. Tu tur redzēsi savu tikko izveidoto asistentu.
+3. Solis: Darbs objektā (Tavs jaunais darba ritms)
+Kad esi pie balsta:
+ * Atver sava asistenta čatu telefonā.
+ * Pievieno bildes: Nofotografē brāķi un balsta numuru.
+ * Runā: Neizslēdzot čatu, nospied mikrofona ikonu (balss ievade) un vienkārši pasaki: "Šeit pie 12-085 balsta ir noberzta krāsa, vajag pārkrāsot, lai nerastos rūsa."
+ * Nospied sūtīt.
+Viss! AI fonā pārvērtīs tavu runu tekstā, analizēs bildes un pēc brīža telefonā parādīsies gatava tabula. Kad atgriezīsies pie datora, šī tabula jau būs čata vēsturē – atlase to nokopēt un ielīmēt savā atskaitē.
+Tavs pirmais uzdevums
+Kad būsi izveidojis asistentu pēc 1. soļa instrukcijas, pamēģini to notestēt. Tu vari ielādēt tās pašas divas bildes, ko iesūtīji man, un izmantot balss ievadi, lai pateiktu to pašu teikumu par krāsu.
+Vai šāds trīs soļu plāns tev šķiet skaidrs un realizējams?
