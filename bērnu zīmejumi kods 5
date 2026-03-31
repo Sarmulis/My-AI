@@ -1,0 +1,55 @@
+Lieliska piebilde! Lai programma būtu universāla, mēs nevaram paļauties tikai uz rozā krāsu. Bērni izmanto visu varavīksni, un dažreiz vienā zīmējumā ir gan zils auto, gan zaļi riteņi.
+Lai to atrisinātu, mēs mainām stratēģiju: tā vietā, lai meklētu konkrētu krāsu, mēs liekam programmai meklēt "visu, kas nav papīrs".
+Šeit būs papildināts loģikas apraksts un koda uzlabojums tavam AI asistentam:
+Uzlabotā segmentācijas loģika (Universal Color Detection)
+Tā vietā, lai izmantotu cv2.inRange ar fiksētām krāsām, mēs izmantosim adaptīvo sliekšņošanu (Adaptive Thresholding) vai fona atņemšanu. Tas ļaus programmai saprast, ka jebkurš pigments uz gaiša fona ir objekts.
+def load_universal_colors(image_path):
+    img = cv2.imread(image_path)
+    # Pārvēršam uz pelēko toņu skalu, lai redzētu visas krāsas kā kontrastu
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    
+    # Izmantojam gausa blūru, lai noņemtu papīra tekstūras trokšņus
+    blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+    
+    # Adaptīvais slieksnis - tas atradīs līnijas neatkarīgi no tā, vai tās ir gaiši zilas vai tumši sarkanas
+    binary = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
+                                   cv2.THRESH_BINARY_INV, 11, 2)
+    
+    # Morfoloģiskā operācija "aizvēršana", lai savienotu mazas krītiņa spraugas
+    kernel = np.ones((3,3), np.uint8)
+    binary = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)
+    
+    return img, binary
+
+Kā atpazīt, kas ir "virsbūve" un kas "riteņi"?
+Lai AI nav jāmīn, mēs programmā iestrādājam ģeometrisko hierarhiju. Bērnu zīmējumos auto parasti ir uzbūvēts pēc noteiktas shēmas:
+ * Virsbūve (Chassis): Tas parasti ir lielākais objekts (pēc laukuma) un atrodas augstāk par riteņiem.
+ * Riteņi: Tie ir mazāki objekti, kas atrodas zem virsbūves vai tās apakšējā daļā.
+Koda papildinājums AI asistentam:
+def identify_parts(regions):
+    # Sakārtojam reģionus pēc to vertikālās pozīcijas (Y koordinātas)
+    # regions.sort(key=lambda p: p.centroid[0]) # Y ir pirmais elements centroidā
+    
+    # 1. Lielākais reģions pēc laukuma visticamāk ir virsbūve
+    regions.sort(key=lambda p: p.area, reverse=True)
+    body = regions[0]
+    
+    # 2. Visi pārējie reģioni, kas atrodas "zem" virsbūves centra vai tās apakšā, ir riteņi
+    potential_wheels = regions[1:]
+    wheels = []
+    
+    body_min_row, body_min_col, body_max_row, body_max_col = body.bbox
+    
+    for r in potential_wheels:
+        r_row, r_col = r.centroid
+        # Ja reģiona centrs ir zem virsbūves augšdaļas, tas varētu būt ritenis
+        if r_row > body_min_row + (body_max_row - body_min_row) * 0.3:
+            wheels.append(r)
+            
+    return body, wheels[:4] # Ņemam pirmos 2-4 atrastos riteņus
+
+Galvenie ieguvumi ar šo pieeju:
+ * Krāsu brīvība: Bērns var zīmēt ar flomāsteriem, zīmuļiem vai krītiņiem. Programmai interesē tikai kontrasts pret papīru.
+ * Viedā atpazīšana: Programma pati saprot, ka tas lielais pleķis pa vidu ir auto, bet tie mazie "kaut kas" apakšā ir riteņi, kurus vajag griezt.
+ * Saglabāta tekstūra: Tā kā mēs izmantojam oriģinālo attēlu kā masku, visas krītiņa tekstūras un krāsu pārejas paliek tieši tādas, kādas tās ir uz papīra.
+Vai vēlies, lai es apvienoju visu šo vienā fināla Python skriptā, kuru tu varētu mēģināt palaist?
