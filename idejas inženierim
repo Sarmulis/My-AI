@@ -1,0 +1,34 @@
+Kā mehatronikas inženierim tev ir "superspēja" – tu proti savienot dzelžus ar kodu. Rīgā, kur industriālā vide ir pietiekami blīva, bet procesu automatizācija mazajos uzņēmumos vēl klibo, tavs lielākais resurss ir tavas zināšanas un laiks, nevis sākuma kapitāls.
+Šeit būs 10 biznesa idejas, kurām vajag tikai datoru, lodāmuru un nedaudz uzņēmības:
+1. "Pēdējās jūdzes" automatizācijas audits
+Daudzi mazie ražotāji Rīgā (kokapstrāde, pārtika, tekstils) pat neapzinās, ka viņu 3 darbinieku manuālo darbu var aizstāt viena lēta pneimatiska svira vai konveijera sensors.
+ * Modelis: Piedāvā bezmaksas auditu. Ja atrodi vietu efektivitātei, pārdod viņiem projektu/shēmu vai uzstādīšanu par fiksētu maksu.
+2. Nestandarta 3D drukas un modelēšanas serviss
+Rīgā ir daudz 3D drukas servisu, bet maz inženiertehnisko 3D servisu.
+ * Modelis: Fokusējies uz funkcionālām detaļām (zobratiem, korpusiem, adapteriem), nevis figūriņām. Izmanto bezmaksas programmatūru (piem., Fusion 360 personīgai lietošanai) un atrodi klientus, kam vajag aizvietot salūzušas, vairs neražotas iekārtu daļas.
+3. Specializēta elektronikas un robotikas "ātrā palīdzība"
+Lielie servisi neņem pretī sīkumus, bet parastie datortehniķi nesaprot kontrolierus.
+ * Modelis: Piedāvā remontēt specifiskas lietas: dronus, noliktavu skenerus, elektriskos skrejriteņus vai viedās mājas komponentes. Reklamējies Facebook grupās un SS.com.
+4. Mikrokontrolieru (Arduino/ESP32) programmēšanas ārpakalpojums
+Ir daudz prototipu izstrādātāju vai mākslinieku, kam vajag "atdzīvināt" objektus, bet viņi neprot rakstīt kodu.
+ * Modelis: Piedāvā izstrādāt tikai loģiku un shēmas. Tev nav jāpērk detaļas – klients tās apmaksā, tu pārdod savu intelektuālo īpašumu.
+5. Viedo māju (Smart Home) konfigurēšana "parastajiem mirstīgajiem"
+Daudzi nopērk viedās spuldzes un sensorus, bet netiek galā ar to savienošanu vienotā ekosistēmā (Home Assistant, Zigbee utt.).
+ * Modelis: Uzstādi un sakonfigurē sistēmas, izmantojot klienta nopirkto tehniku. Tavs ieguvums ir servisa maksa par uzstādīšanu un uzturēšanu.
+6. Robotikas pulciņš vai privātskolotājs
+Rīgā ir milzīgs pieprasījums pēc STEM izglītības.
+ * Modelis: Sākumā vari piedāvāt individuālas nodarbības bērniem/studentiem viņu mājās. Māci pamatus (lodēšana, Python, shēmtehnika). Inventāru var lūgt iegādāties vecākiem pēc tava saraksta.
+7. IoT sensoru risinājumi mazajam biznesam
+Piemēram, temperatūras un mitruma monitorings mazajām kafejnīcām vai siltumnīcām Rīgas pievārtē.
+ * Modelis: Izmanto lētus sensorus un atvērtā koda platformas. Pārdod nevis ierīci, bet risinājumu (piemēram, brīdinājuma saņemšanu telefonā, ja ledusskapis sabojājas).
+8. Veco industriālo iekārtu modernizācija (Retrofitting)
+Latvijā ir daudz 90-to gadu darbagaldu. Tie ir mehāniski izturīgi, bet to vadības sistēmas ir morāli novecojušas.
+ * Modelis: Piedāvā uzstādīt jaunus kontrolierus un displejus esošajām iekārtām, tādējādi pagarinot to mūžu par daļu no jaunas iekārtas cenas.
+9. CAD rasējumu digitalizācija
+Daudziem veciem uzņēmumiem rasējumi joprojām ir uz papīra vai PDF formātā, ko nevar izmantot mūsdienu CNC iekārtās.
+ * Modelis: Pārzīmē papīra rasējumus uz 3D modeļiem vai DXF failiem. Darbs tikai pie datora, bez jebkādām investīcijām.
+10. Konsultācijas par robotu izvēli (Consultative Sales)
+Uzņēmumi vēlas robotizēties, bet nezina, vai viņiem vajag KUKA, Universal Robots vai lētu ķīniešu analogu.
+ * Modelis: Esi neatkarīgs eksperts, kurš palīdz izvēlēties piemērotāko risinājumu, uzrakstīt tehnisko specifikāciju iepirkumam un uzraudzīt ieviešanas procesu.
+Padoms sākumam: Rīgā mehatroniķu komūna ir maza. Aizej uz kādu no hackerspace (piemēram, "Make Riga") vai RTU Zinātnes un inovāciju centru. Tur bieži var atrast gan bezmaksas rīkus, gan pirmos klientus/sadarbības partnerus.
+Kura no šīm jomām tev pašam šķiet tehniski saistošākā?
