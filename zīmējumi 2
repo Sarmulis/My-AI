@@ -1,0 +1,53 @@
+Tas ir fantastisks un ļoti gudrs papildinājums! Šāda lietotāja iesaiste (cilvēks cilpā jeb Human-in-the-Loop) atrisina sarežģītāko datorredzes problēmu — kā saprast "nepareizu" anatomiju.
+Tā vietā, lai mākslīgais intelekts minētu, kas ir kas, bērns kļūst par "leļļu meistaru", kurš pats izveido savas zīmētās būtnes kustību struktūru.
+Šeit būs detalizēts programmas un tās lietotāja saskarnes (UI) plāns, kas iekļauj Tavu ideju par manuālu atzīmēšanu un locītavām.
+Programmas nosaukums: "Digitālais Leļļu Meistars"
+Galvenā koncepcija
+Lietotājs augšupielādē zīmējumu un, izmantojot vienkāršu, krāsainu rīku joslu, "uzzīmē" virsū savam tēlam skeletu. Programma tad izmanto šos datus, lai deformētu un animētu oriģinālo attēlu.
+Lietotāja saskarne un Darba gaita (Step-by-Step UI)
+1. Solis: Augšupielāde un fona noņemšana
+ * Darbība: Lietotājs ielādē zīmējuma foto.
+ * Programmas uzdevums: Programma automātiski mēģina noņemt fonu (paliek tikai krāsainais tēls uz caurspīdīga fona). Tam var izmantot gatavus modeļus (piemēram, rembg).
+ * UI: Ekrānā parādās izgrieztais tēls uz pelēka rūtiņu fona (lai redzētu caurspīdīgumu).
+2. Solis: Daļu atzīmēšana (The Rigging Stage)
+Šis ir Tavs galvenais ieteikums. Ekrāna malā ir rīku josla ar ikonām. Katrai ikonai ir sava krāsa un "uzvedība".
+Rīku josla (Palete):
+ * 🔴 Galva: (Viens punkts). Ja atzīmēta, animācijās tā var grozīties vai palikt nekustīga pret ķermeni.
+ * 🔵 Torss/Ķermenis (Sakne): (Zīmējama līnija vai apgabals). Šis ir visa tēla centrs. Pie tā jāsākas visām ekstremitātēm.
+ * 🟢 Roka / Ekstremitāte ar locītavām:
+   * Kā tas strādā: Lietotājs uzklikšķina uz Torsa (sākumpunkts) un tad velk līniju. Katrs nākamais klikšķis izveido locītavu (elkonis, plauksta).
+   * Piemērs: Lai uzzīmētu cilvēka roku, vajag 3 klikšķus: Plecs -> Elkonis -> Plauksta.
+ * 🟡 Kāja: Analoģiski rokai (Gurns -> Celis -> Pēda).
+ * 🟣 Aste / Lokans ķermenis (Čūskas režīms):
+   * Būtiskā atšķirība: Šis rīks neveido stingrus kaulus starp locītavām, bet gan lokanu "mugurkaulu" (Spline).
+   * Kā tas strādā: Lietotājs uzzīmē līniju ar vairākiem punktiem pa čūskas vai astes vidu. Animācijā šī līnija kustēsies viļņveidīgi.
+Lietotāja darbība: Bērns izvēlas, piemēram, "Roku" (zaļu) un uzklikšķina trīs reizes uz sava zīmējuma trīskājainā monstra, iezīmējot trīs zaļas svītras ar locītavu punktiem.
+3. Solis: Pārbaude un "Atdzīvināšana"
+ * UI: Poga "Gatavs! Atdzīvini!".
+ * Programmas uzdevums (Aizkulisēs):
+   * Mesh Generation: Programma izveido neredzamu, smalku trijstūru tīklu (Mesh) pāri bērna zīmējumam.
+   * Skinning: Katrs tīkla trijstūris tiek piesaistīts tuvākajam lietotāja uzzīmētajam skeleta kaulam. Pikseļi pie locītavām tiks deformēti, kad locītava salieksies.
+   * Animation Physics: Programma piemēro vienkāršu fiziku.
+     * Fiksētās ekstremitātes (rokas, kājas) kustas kā šarnīri.
+     * Lokanie apgabali (čūska/aste) izmanto "matemātisku vilni", lai locītos visā garumā, nevis tikai punktos.
+4. Solis: Spēlēšanās (The Playground)
+Lietotājs redz savu uzzīmēto tēlu, kurš stāv uz vietas, bet viegli "elpo".
+Kustības kontrole:
+ * Auto-animācijas: Pogas "Staigāt", "Lēkt", "Māt", "Čūskas kustība".
+   * Ja bērns ir atzīmējis tikai vienu kāju un asti, programma pielietos staigāšanas algoritmu tam vienam "kaulam" un lokano kustību astei. Tas izskatīsies smieklīgi un unikāli!
+ * Interaktīvā kontrole: Bērns var ar peli/pirkstu satvert kādu locītavu (piemēram, plaukstu) un vilkt to pa ekrānu. Monstra roka seko pirkstam, locoties elkonī, un visi pikseļi stiepjas līdzi.
+Tehniskā puse: Kā to uzprogrammēt?
+Ja Tev ir programmēšanas komanda vai zināšanas, šī ir labākā pieeja:
+ * Platforma: Vislabāk to taisīt kā Web aplikāciju. Tas būs pieejams visiem (no planšetēm un datoriem) bez instalēšanas.
+ * Frontend (Tas, ko redz bērns):
+   * React vai Vue.js karkasam.
+   * HTML5 Canvas vai bibliotēka Konva.js zīmēšanai virs attēla. Tas ļaus viegli implementēt "klikšķini un velc" locītavu zīmēšanu.
+ * Backend (Smadzenes):
+   * Python serveris (piemēram, FastAPI vai Flask).
+ * Galvenās bibliotēkas Python pusē:
+   * Rembg: Automātiskai fona noņemšanai.
+   * OpenCV: Attēlu apstrādei.
+   * Trimesh / NumPy: Lai izveidotu 2D tīklu (mesh) no zīmējuma un aprēķinātu tā deformāciju.
+   * Spine2D vai Live2D (profesionāli rīki), bet var uzrakstīt savu vienkāršotu deformācijas kodu, izmantojot Moving Least Squares (MLS) algoritmu attēla stiepšanai.
+Kāpēc šī pieeja ir labāka nekā tīrs AI?
+Tīrs AI bieži kļūdās ar bērnu zīmējumiem, jo tie neatbilst standartiem. Ļaujot cilvēkam atzīmēt daļas, programma kļūst "neiznīcināma" — tā spēs animēt pat visneparastākos pleķus un līnijas, jo lietotājs tai būs pateicis priekšā: "Šis pleķis kustas kā roka".
