@@ -1,0 +1,22 @@
+Lieliska izvēle! Šis rīks tev ietaupīs visvairāk laika tieši pēc "lauka darbiem", kad negribas sēdēt pie datora un nodarboties ar "copy-paste".
+Lai mēs izveidotu šo "Defektu akta automatizētāju", mums jāsāk ar struktūru. AI asistentam ir jāsaprot, kādu informāciju tu viņam dod un kādā formātā tai jāiznāk ārā.
+Lūk, kā mēs to uzbūvēsim (soli pa solim):
+1. Solis: Definējam "Ievades datus"
+Kad tu atgriezies no objekta, tu asistentam iedosi:
+ * Fotoattēlus (kurus AI var analizēt, ja izmantosi multimodālu modeli kā Gemini vai GPT-4).
+ * Balss piezīmi vai īsu tekstu (piemēram: "Balsts 402, korozija pamatnē, steidzami").
+2. Solis: Izveidojam Promptu (Instrukciju)
+Šī ir tā "smadzene", ko tu ierakstīsi sava asistenta uzstādījumos. Esmu sagatavojis tev pirmo melnrakstu, ko tu vari iekopēt savā AI asistentā:
+> *"Tu esi Rīgas satiksmes kontakttīkla speciālista asistents. Tavs uzdevums ir apstrādāt datus par konstatētajiem būvniecības brāķiem.
+> No lietotāja sniegtās informācijas izvelc šādus laukus:
+>  * Objekta ID / Balsta Nr.
+>  * Defekta apraksts (tehniskā valodā).
+>  * Prioritāte (Zema/Vidēja/Augsta).
+>  * Ieteicamā rīcība (piemēram, 'Nomainīt izolatoru' vai 'Pārkrāsot').
+> Rezultātu vienmēr izvadi glītā tabulā, kas ir gatava kopēšanai uz Excel vai Word atskaiti."*
+> 
+3. Solis: Praktiskais tests
+Pamēģinām tagad! Iedomājies, ka tu tikko atgriezies no Brīvības ielas objekta.
+Ieraksti man šeit "neformālā" veidā (tā, it kā tu to ātri pateiktu kolēģim), ko tu tur redzēji pie kāda konkrēta balsta.
+Piemēram: "Pie 55. balsta pamanīju, ka enkura skrūves nav pievilktas līdz galam, var redzēt spraugu. Tas ir bīstami. Pie 58. balsta vienkārši krāsa nolupusi, nekas traks."
+Uzraksti savu piemēru, un es parādīšu, kā asistents to uzreiz pārvērtīs par gatavu aktu!
