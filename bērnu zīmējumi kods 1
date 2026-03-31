@@ -1,0 +1,28 @@
+Certainly! Here is the precise, technical prompt in English. You can provide this to an AI model (like a specialized GPT or a coding assistant) to generate the actual program code.
+AI Programming Prompt: "Authentic Child Drawing Animator"
+Objective: Create a Python program that animates a static child's drawing of a vehicle while preserving 100% of its original visual "imperfections."
+Core Principle: Do NOT "beautify," smooth, or replace the drawing with stock assets. The animation must be a direct manipulation of the original pixels to maintain the hand-drawn soul of the artwork.
+Technical Requirements:
+1. Image Segmentation & Pre-processing:
+ * Input: Load the provided image (e.g., drawing.png).
+ * Background Removal: Isolate the crayon/marker strokes from the paper background using color thresholding or a background removal library (e.g., rembg).
+ * Manual/Semi-Auto Part Identification: The program should allow the user to define (or automatically detect based on proximity) two types of segments:
+   * The Chassis (Body): The main vertical/rectangular structure.
+   * The Wheels: The three distinct, irregular circular/oval shapes at the bottom and sides.
+2. Rigid Body Animation Logic:
+ * Non-Circular Rotation: For the wheels, calculate the geometric center (centroid) of each irregular shape. Rotate these shapes 360 degrees around their own centers as the vehicle moves.
+   * Constraint: The shapes must rotate as "rigid bodies"—they should not warp or turn into perfect circles. If a wheel is a triangle, it must rotate as a triangle.
+ * Linear Translation: Move the entire group of segments (Body + Wheels) horizontally across the frame (X-axis).
+3. Physics & "Character" Jitter:
+ * The "Bumpy Ride" Effect: Since the wheels are not round, apply a vertical offset (Y-axis jitter) to the Chassis that corresponds to the rotation of the wheels. This simulates the car "clambering" over its own uneven tire shapes.
+ * Proportional Speed: The rotation speed of the irregular wheels must be mathematically synced to the forward velocity of the car.
+4. Output Generation:
+ * Render: Use OpenCV or Pygame to render the animation at 30-60 FPS.
+ * Export: Save the result as a seamless looping MP4 or GIF.
+Expected Code Structure:
+Provide a Python script using OpenCV for image manipulation and NumPy for coordinate transformations. The script should include a function animate_drawing(image_path) that performs the extraction, rotation, and translation of the specific hand-drawn segments.
+Why this prompt works:
+ * "Rigid Body" tells the AI not to let the shapes "melt" or change form.
+ * "Centroid" ensures the wonky wheels spin around their own middle point, even if they aren't round.
+ * "Y-axis jitter" makes the animation look intentional and funny, as if the car is actually driving on those specific shapes.
+Do you want me to try and write a basic version of this Python code for you right now?
