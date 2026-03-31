@@ -1,0 +1,29 @@
+Izvēle par labu 6. idejai (Robotikas pulciņš / Privātskolotājs) ir stratēģiski gudra, jo Rīgā vecāki ir gatavi investēt bērnu STEM izglītībā, un tavas mehatronikas zināšanas ir unikāls pārdošanas punkts (atšķirībā no parastiem programmēšanas kursiem, tu māci "dzīvu" dzelzi).
+Šeit ir kopsavilkums un specifisks prompts priekš lovable.dev, lai izveidotu pievilcīgu MVP mājaslapu tavam izglītības biznesam.
+1. Idejas kopsavilkums: Robotikas un Mehatronikas Mentors
+ * Mērķis: Sniegt praktiskas iemaņas robotikā, elektronikā un programmēšanā bērniem (10+) un jauniešiem.
+ * Pakalpojums: Individuālas nodarbības mājās vai nelielās grupās (piemēram, bibliotēku telpās vai koprades telpās Rīgā).
+ * Galvenais fokuss: "No nulles līdz savam robotam" – nevis tikai teorija, bet reāla lodēšana, shēmu lasīšana un koda rakstīšana (Arduino, Python).
+2. Prompts priekš lovable.dev (MVP versija)
+Iekopē šo tekstu Lovable logā:
+Create a modern, vibrant, and educational landing page for a private Robotics and Mechatronics tutor based in Riga. The design should be friendly but technical (use a "tech-learning" aesthetic with light gray backgrounds and bright primary accents like electric yellow or teal).
+
+Key Features (MVP):
+1. Hero Section: Headline "Iemāci bērnam radīt tehnoloģijas, nevis tikai tās patērēt". Subheadline: "Individuālas robotikas un mehatronikas nodarbības Rīgā kopā ar inženieri." Call-to-action (CTA): "Pieteikties bezmaksas pirmajai konsultācijai".
+2. Learning Paths Section: Three cards showing: 
+   - "Elektronikas pamati" (lodēšana un shēmas)
+   - "Arduino programmēšana" (loģika un koda rakstīšana)
+   - "Robotu būve" (mehānika un 3D modelēšana)
+3. Pricing/Structure Section: Simple breakdown of "Nodarbība pie Tevis mājās" (hourly rate) and "Grupas nodarbības" (monthly). Mention that the tutor provides the curriculum and a list of affordable components for parents to buy.
+4. About Me: Section with a placeholder for a photo. Bio: "Esmu mehatronikas inženieris, kurš tic, ka sarežģītas lietas var izskaidrot vienkārši. Mans mērķis ir iedot jauniešiem rīkus, lai viņi paši varētu uzbūvēt savas idejas."
+5. FAQ: Simple accordion with questions like "Kāds vecums ir piemērotākais?" (10+), "Vai vajadzīgas priekšzināšanas?" (Nē), "Kāds aprīkojums nepieciešams?".
+6. Contact Form: Simple fields for Parent's Name, Child's Age, Area of Riga (District), and Phone Number.
+7. Footer: Links to social media and text "Inženierzinātnes ir nākotne. Ražots Rīgā."
+
+Style: Use Lucide icons like 'Cpu', 'Bot', 'Wrench'. Use a friendly, clean font like 'Poppins' or 'Inter'. Fully responsive for mobile. Language: Latvian.
+
+3. Kā sākt bez budžeta (Praktiskie soļi)
+ * Sagatavo "Iepirkumu sarakstu": Lai tev nebūtu jāinvestē savā inventārā, sagatavo PDF failu ar saitēm uz lētiem Arduino komplektiem (piemēram, no LemonA vai vietējiem veikaliem), kurus vecāki nopērk savam bērnam. Tā bērnam paliek savs robots, un tev nav izdevumu.
+ * Lokalizācija: Rīgā vecāki bieži meklē pulciņus savā rajonā (Purvciems, Āgenskalns, Teika). Mājaslapā un komunikācijā uzsver, ka vari braukt uz mājām – tas ir milzīgs pluss aizņemtiem vecākiem.
+ * Demonstrācija: Uzfilmē īsu video ar savu pēdējo projektu un ieliec mājaslapā. Bērniem un vecākiem ir jāredz, ka skolotājs tiešām prot "uztaisīt lietas".
+Vai tev jau ir kāds gatavs robotikas projekts, ko varētu izmantot kā uzskates līdzekli pirmajā nodarbībā?
