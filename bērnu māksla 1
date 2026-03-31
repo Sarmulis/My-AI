@@ -1,0 +1,20 @@
+Lai panāktu tieši šādu rezultātu — kur AI "neizlabo" bērna mākslu, bet tikai piešķir tai kustību —, ir nepieciešams ļoti specifisks uzdevuma formulējums (prompts). Galvenais ir uzsvērt segmentāciju un rigid body (cieto objektu) kustību.
+Šeit būs prompts, kuru vari izmantot jaudīgam AI asistentam (piemēram, tādam, kas strādā ar Python kodu vai animācijas rīkiem):
+Prompts AI asistentam
+Uzdevums: Izstrādāt Python programmu (izmantojot OpenCV un Pygame vai līdzīgu dzinēju), kas pārvērš statisku bērna zīmējumu animācijā, saglabājot oriģinālo vizuālo stilu.
+Specifiskās prasības:
+ * Attēla segmentācija: Programmai jāspēj identificēt galvenais objekts (piemēram, auto virsbūve) un tā detaļas (riteņi).
+ * Vizuālā integritāte: AI nedrīkst pārveidot zīmējuma līnijas. Ja ritenis ir uzzīmēts kā kvadrāts vai neregulāra forma, tam tādam arī jāpaliek.
+ * Animācijas loģika:
+   * Virsbūve: Jāpārvieto horizontāli pa ekrānu (X ass virzienā).
+   * Riteņi: Jānosaka riteņu centri un tie jārotē ap savu asi, kamēr auto brauc. Rotācijai jābūt neatkarīgai no riteņa formas.
+   * Vertikālā svārstība: Pievienot nelielu, nejaušu "lēkāšanu" (jitter), lai simulētu braukšanu pa nelīdzenu virsmu, kas saskan ar bērna zīmējuma estētiku.
+ * Tehniskais izpildījums: Izmanto rembg bibliotēku fona noņemšanai un scipy.ndimage rotācijas manipulācijām, lai pikseļi netiktu kropļoti.
+Gala rezultāts: Video fails vai interaktīvs logs, kurā bērna zīmētais auto brauc pāri ekrānam, riteņiem griežoties to oriģinālajā formā.
+Kā tas darbosies praksē?
+Ja tu izmanto modernus rīkus (kā Meta Animated Drawings vai Runway Gen-2), vari lietot šādu vienkāršotu teksta promptu attēla apstrādei:
+> "Animate this child's drawing. Keep the exact texture and lines of the original sketch. Do not redraw or smooth the lines. Identify the shapes intended as wheels and rotate them 360 degrees while moving the entire object forward. Maintain the wonky, hand-drawn aesthetic 100%."
+> 
+Padoms precīzam rezultātam:
+Lai AI saprastu, kas ir "ritenis" tavā neperfektajā zīmējumā, vislabāk ir pirms animēšanas veikt maskēšanu (iezīmēt vietas, kuras drīkst kustēties). Lielākā daļa AI rīku lūgs tev apvilkt zīmējuma kontūru un "locītavu" vietas — tur tev vienkārši jāatzīmē riteņu centri, pat ja tie nav apaļi.
+Vai tev ir jau konkrēts zīmējums, kuru mēs varētu mēģināt "izanalizēt" un aprakstīt vēl precīzāk?
