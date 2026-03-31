@@ -1,0 +1,34 @@
+Lieliski! Šis zīmējums ir ideāls piemērs, lai pārbaudītu tavas programmas spējas.
+Tas nav tikai parasts auto; tam ir raksturs, un "riteņi" ir unikālas formas. Tavai programmai būs jāsaprot, kuras daļas rotēt un kuras virzīt uz priekšu, nezaudējot zīmējuma dvēseli.
+Lūk, uzlabots un ļoti specifisks prompts AI asistentam, lai viņš varētu izveidot programmu tieši šāda zīmējuma animēšanai, izmantojot, piemēram, Python bibliotēkas.
+Tehniskais prompts AI asistentam (lai uzrakstītu kodu)
+Konteksts un mērķis:
+Izstrādāt Python programmu, kas uzņem bērna zīmētu attēlu (piemēram, image_0.png) un ģenerē animāciju, kurā uzzīmētais objekts (auto) pārvietojas pa ekrānu.
+Pamatprincips (obligāts nosacījums):
+Saglabāt oriģinālo zīmējumu neizmainītu. Nekādā gadījumā neizlīdzināt līnijas, nepārveidot formas un neaizvietot zīmējumu ar gataviem 3D modeļiem. Animācijai jābūt balstītai tikai uz oriģinālajiem pikseļiem un to kustību.
+Soli pa solim uzdevumi programmai:
+ * Attēla ielāde un priekšapstrāde:
+   * Ielādēt attēlu image_0.png.
+   * Veikt fonas noņemšanu, atstājot tikai rozā krītiņa līnijas (piemēram, izmantojot krāsu maskēšanu vai rembg bibliotēku).
+ * Objektu segmentācija un iezīmēšana (galvenais izaicinājums):
+   * Segmentēt zīmējumu divās galvenajās daļās:
+     * Daļa A (Virsbūve): Augšējais, garenais taisnstūris ar iekšējām detaļām un augšējo daļu.
+     * Daļa B (Kustīgās detaļas): Trīs zemāk esošās, ovālās/neregulārās formas, kas pilda riteņu funkciju.
+   * Piezīme: Programmai jāpazīst, ka pat ja riteņi nav perfekti apaļi, tie ir jārotē.
+ * Kustības definēšana:
+   * Virsbūve (Daļa A): Virzīt horizontāli pa ekrānu (X ass).
+   * Riteņi (Daļa B): Noteikt katra riteņa centru un rotēt katru riteni ap tā centru par 360 grādiem uz priekšu, kamēr auto brauc.
+   * Svarīgi: Riteņi nedrīkst pazust zem virsbūves vai kļūt kropļoti rotācijas dēļ. Katram ritenim ir jāpaliek savā formā, tikai griežoties.
+ * Papildu kustības detaļas (iestatāmas):
+   * Pievienot nelielu, nejaušu vertikālu "lēkāšanu" (wobble) virsbūvei un riteņiem, lai simulētu "nepilnīgu" braukšanu, kas saskan ar zīmējuma estētiku.
+   * Rotācijas ātrumam jābūt proporcionālam braukšanas ātrumam.
+ * Gala rezultāta izveide:
+   * Izveidot video failu (MP4) vai interaktīvu logu (piemēram, izmantojot Pygame), kurā šis animētais auto brauc.
+   * Pievienot vienkāršu fonu (piemēram, baltu papīru) un varbūt vienkāršu "ceļa" līniju, kas parādās un pazūd.
+Sagaidāmais kods:
+Python kods, kas skaidri parāda attēla segmentāciju un transformāciju (rotācijas un translācijas) matricu piemērošanu katram segmentam atsevišķi.
+Kā tu vari izmantot šo promptu?
+Tu vari šo tekstu dot AI asistentam (piemēram, ChatGPT vai citam ar koda ģenerēšanas spējām), un viņš var mēģināt uzrakstīt Python kodu, kas to dara.
+Kas tev var būt nepieciešams:
+ * Būs jāuzstāda Python un bibliotēkas: opencv-python, numpy, pygame (vai moviepy).
+ * AI modelim, visticamāk, būs jādod neliela palīdzība ar "riteņu" segmentāciju. Var būt nepieciešams manuāli atzīmēt "riteņu" centrus sākotnējā koda pielāgošanā.
