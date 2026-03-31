@@ -1,0 +1,26 @@
+Lieliska izvēle. "Pēdējās jūdzes" automatizācijas audits ir visstraujāk mērogojamais modelis, jo tu pārdod savas smadzenes, nevis dārgu inventāru. Rīgas mazajiem ražotājiem (pārtika, kosmētika, koka detaļas) bieži vien pietiktu ar vienu pareizi novietotu sensoru, lai ietaupītu simtiem darba stundu.
+Šeit ir apkopojums un specifisks prompts, ko vari uzreiz iekopēt lovable.dev, lai izveidotu savu MVP (Minimum Viable Product) mājaslapu.
+1. Idejas kopsavilkums: Automatizācijas Audita Serviss
+ * Mērķis: Palīdzēt mazajiem un vidējiem uzņēmumiem (SME) identificēt vietas, kur mehāniskie procesi ir neefektīvi.
+ * Pakalpojums: Inženiertehniskā apskate + ziņojums ar ieteicamajiem uzlabojumiem (ROI aprēķins, nepieciešamie komponenti kā Arduino/PLC/Pneimatika).
+ * Ieguvums klientam: Izmaksu samazināšana bez nepieciešamības algot pilnas slodzes inženieri.
+2. Prompts priekš lovable.dev (MVP versija)
+Iekopē šo tekstu Lovable logā:
+Create a clean, professional landing page for an Automation Audit service for small manufacturing businesses in Riga, Latvia. The design should feel industrial yet high-tech (use a dark theme with neon blue or safety orange accents).
+
+Key Features (MVP):
+1. Hero Section: A bold headline "Automatizē savu ražošanu bez liekiem tēriņiem", a subheadline explaining that I help SMEs find low-cost mechatronic solutions, and a primary CTA button "Pieteikties bezmaksas auditam".
+2. Services Section: Three cards showing: 1) Procesu audits, 2) IoT & Sensoru risinājumi, 3) Veco iekārtu modernizācija.
+3. ROI Calculator: A simple interactive tool where users can move a slider "Manuālās stundas dienā" (1-24) and "Darbinieka stundas likme" (€), which then calculates "Potenciālais ietaupījums gadā" (assuming 20% efficiency gain).
+4. About Me: A short section mentioning "Mehatronikas inženieris ar fokusu uz praktiskiem, zemu izmaksu risinājumiem".
+5. Contact Form: A simple form with fields: Name, Company Name, Industry, and Message. No login required.
+6. Footer: Basic links and "Ražots Rīgā".
+
+Technical style: Use Lucide icons for engineering vibes. Use a modern sans-serif font like Inter. Ensure the site is responsive for mobile. Language: Latvian.
+
+3. Nākamie soļi pēc lapas izveides
+Kad Lovable būs uzģenerējis lapu, iesaku veikt šos 3 soļus (bezmaksas):
+ * Portfolio sadaļa: Pat ja tev vēl nav klientu, ieliec "Konceptuālus piemērus". Piemēram: "Kā es aizstātu manuālu pudeļu korķēšanu ar €50 vērtu pneimatisko sistēmu."
+ * LinkedIn aktivitāte: Pievieno savu jauno mājaslapu savā profilā un atrodi Rīgas ražošanas uzņēmumu vadītājus. Uzrunā viņus tieši, piedāvājot "Viena procesa bezmaksas analīzi".
+ * Local SEO: Reģistrē "Google Business Profile". Pat ja tev nav biroja, vari norādīt Rīgu kā apkalpošanas zonu. Tas palīdzēs parādīties meklēšanā, kad kāds meklēs "inženieris Rīgā".
+Kāds būtu pirmais specifiskais ražošanas process, kuru tu vislabāk pārzini un varētu automatizēt?
